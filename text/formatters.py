@@ -1,17 +1,8 @@
-from talon.voice import Word, Context, press
 from talon import clip
+from talon.voice import Context, Word, press
 
-from ..utils import (
-    insert,
-    normalise_keys,
-    parse_word,
-    surround,
-    text,
-    sentence_text,
-    word,
-    parse_words,
-    spoken_text,
-)
+from ..utils import (insert, normalise_keys, parse_word, parse_words,
+                     sentence_text, spoken_text, surround, text, word)
 
 
 def title_case_capitalize_word(index, word, _):
@@ -115,7 +106,7 @@ ctx = Context("formatters")
 
 ctx.keymap(
     {
-        "(phrase | say) <dgndictation> [over]": text,
+        "(phrase | say) <dgndictation> [over]": spoken_text,
         "sentence <dgndictation> [over]": sentence_text,
         "(comma | ,) <dgndictation> [over]": [", ", spoken_text],
         "period <dgndictation> [over]": [". ", sentence_text],
